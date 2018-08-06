@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+python binary_x.py $1 -f
