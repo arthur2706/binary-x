@@ -40,10 +40,10 @@ def printCombinationsFast(input):
     xpositions = get_x_positions(input[::-1])
     # 10X10X0 => 1001000
     #              ^  ^
-    template = long(''.join(map(lambda ch: '0' if ch == 'X' else ch, input)), 2)
+    template = int(''.join(map(lambda ch: '0' if ch == 'X' else ch, input)), 2)
 
     # count number of X's
-    numer_of_x = len(filter(lambda ch: ch == 'X', input))
+    numer_of_x = len(list(filter(lambda ch: ch == 'X', input)))
     numbers_to_generate = 1 << numer_of_x # 2 ^ X
 
     i = 0
@@ -62,8 +62,8 @@ def printCombinations(input):
     O(1) MEM
     """
 
-    andMask = long(''.join(map(lambda ch: '0' if ch == 'X' else '1', input)), 2)
-    xorMask = long(''.join(map(lambda ch: '0' if ch == 'X' else ch, input)), 2)
+    andMask = int(''.join(map(lambda ch: '0' if ch == 'X' else '1', input)), 2)
+    xorMask = int(''.join(map(lambda ch: '0' if ch == 'X' else ch, input)), 2)
     bignumber = 1 << len(input) # 2 ^ len
     fmt = '0' + str(len(input)) + 'b'
     i=0
@@ -98,7 +98,7 @@ def printCombinationsRecursive(input, index):
 
 
 def validate(input):
-    return len(filter(lambda ch: ch != '0' and ch != '1' and ch != 'X', input)) == 0
+    return len(list(filter(lambda ch: ch != '0' and ch != '1' and ch != 'X', input))) == 0
 
 
 def main():
