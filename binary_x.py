@@ -49,7 +49,7 @@ def printCombinationsFast(input):
     i = 0
     while i<numbers_to_generate:
         number = template | i_on_xpositions_mask(i, xpositions)
-        print format(number, fmt)
+        print( format(number, fmt))
         i += 1
 
 
@@ -69,7 +69,7 @@ def printCombinations(input):
     i=0
     while i<bignumber:
         if not (i & andMask) ^ xorMask:
-            print format(i, fmt)
+            print (format(i, fmt))
         i+=1
 
 
@@ -81,7 +81,7 @@ def printCombinationsRecursive(input, index):
     O(2^X) MEM of call stack.
     """
     if len(input) == index:
-        print "".join(input)
+        print ("".join(input))
         return
 
     for i in range(index, len(input)):
@@ -94,7 +94,7 @@ def printCombinationsRecursive(input, index):
             printCombinationsRecursive(cp, i+1)
             return
 
-    print "".join(input)
+    print ("".join(input))
 
 
 def validate(input):
@@ -118,8 +118,8 @@ def main():
         else:
             printCombinations(args.i)
     except Exception as error:
-            print repr(error)
-            print "Usage: ./paxosx 0X111X000"
+            print( repr(error))
+            print( "Usage: ./paxosx 0X111X000")
 
 
 if __name__ == "__main__":
